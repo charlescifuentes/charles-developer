@@ -9,5 +9,5 @@
 </h1>
 
 ## 🚀 Details
-I am developing this website for my profesional Portfolio, I´m using WordPress as a Headless CMS and Gatsby.js and GraphQL to create the UI
+I am developing this website for my profesional Portfolio, I´m using WordPress as a Headless CMS and Gatsby.js with GraphQL to create the UI
 "# charles-developer" 
