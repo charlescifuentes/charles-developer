@@ -5,7 +5,7 @@
   </a>
 </p>
 <h1 align="center">
-  Portfolio Website developed with WordPress as a Headless CMS and Gatsby.js and GraphQl as Frontend
+  Portfolio Website developed with WordPress as a Headless CMS and Gatsby.js with GraphQl as Frontend
 </h1>
 
 ## 🚀 Details
