@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `CharlesDev`,
+    title: `Charles Developer`,
     description: `Software Enginner - Fullstack developer.`,
     author: `@gatsbyjs`,
   },
@@ -40,8 +40,8 @@ module.exports = {
         verboseOutput: false,
         perPage: 100,
         searchAndReplaceContentUrls: {
-          sourceUrl: "http://charlesdev-wpapi.colombiaweb.co/",
-          replacementUrl: "https://localhost:8000",
+          sourceUrl: "https://source-url.com",
+          replacementUrl: "https://replacement-url.com",
         },
         // Set how many simultaneous requests are sent at once.
         concurrentRequests: 10,
@@ -54,7 +54,7 @@ module.exports = {
           "**/taxonomies",
           "**/users",
           "**/menus",
-          "**/menu-locations",
+          "**/portfolio",
         ],
         excludedRoutes: [],
         normalizer: function({ entities }) {

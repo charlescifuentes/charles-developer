@@ -8,7 +8,8 @@ const slash = require(`slash`)
 // Will create pages for WordPress pages (route : /{slug})
 // Will create pages for WordPress posts (route : /post/{slug})
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage, createRedirect } = actions
+  createRedirect({ fromPath: '/', toPath: '/inicio', redirectInBrowser: true, isPermanent: true })
   // The “graphql” function allows us to run arbitrary
   // queries against the local Gatsby GraphQL schema. Think of
   // it like the site has a built-in database constructed
@@ -45,6 +46,18 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      allWordpressWpPortfolio {
+        edges {
+          node {
+            title
+            content
+            slug
+            featured_media {
+              source_url
+            }
+          }
+        }
+      }
     }
   `)
 
@@ -54,7 +67,7 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   // Access query results via object destructuring
-  const { allWordpressPage, allWordpressPost } = result.data
+  const { allWordpressPage, allWordpressPost, allWordpressWpPortfolio } = result.data
 
   const pageTemplate = path.resolve(`./src/templates/page.js`)
   // We want to create a detailed page for each
@@ -83,6 +96,18 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `/post/${edge.node.slug}/`,
       component: slash(postTemplate),
+      context: edge.node,
+    })
+  })
+  // All Portfolio posts
+  const portfolioTemplate = path.resolve(`./src/templates/portfolio.js`)
+  // We want to create a detailed page for each
+  // post node. We'll just use the WordPress Slug for the slug.
+  // The Post ID is prefixed with 'POST_'
+  allWordpressWpPortfolio.edges.forEach(edge => {
+    createPage({
+      path: `/portfolio/${edge.node.slug}/`,
+      component: slash(portfolioTemplate),
       context: edge.node,
     })
   })

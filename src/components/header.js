@@ -12,7 +12,7 @@ const Header = () => (
         wordpressMenusMenusItems(name: {eq: "Main Menu"}) {
           items {
             title
-            slug
+            url
           }
         }
       }
@@ -37,7 +37,7 @@ const Header = () => (
           <div style={{ display: `block` }}>
             <h1 style={{ margin: 0 }}>
               <Link
-                to="/"
+                to="/inicio"
                 style={{
                   color: `white`,
                   textDecoration: `none`,
@@ -50,9 +50,9 @@ const Header = () => (
           </div>
           <ul style={{ listStyle: `none`, display: `flex`, margin: 0 }}>
             {data.wordpressMenusMenusItems.items.map(item => (
-              <li key={item.slug} style={{ margin: `0 10px` }}>
+              <li key={item.url} style={{ margin: `0 10px` }}>
                 <Link
-                  to={`/${item.slug}`}
+                  to={`/${item.url}`}
                   style={{
                     color: `white`,
                     textDecoration: `none`,
