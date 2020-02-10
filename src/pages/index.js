@@ -1,7 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
-import Img from "gatsby-image"
 import SEO from "../components/seo"
 
 const IndexPage = ({ data }) => (
@@ -18,7 +17,7 @@ const IndexPage = ({ data }) => (
             to={`/post/${post.node.slug}`}
             style={{ display: "flex", color: "black", textDecoration: "none" }}
           >
-            <img src={post.node.featured_media.source_url} style={{ width: "25%", marginRight: 20 }}/>
+            <img src={post.node.featured_media.source_url} style={{ width: "25%", marginRight: 20 }} alt="" />
             <div style={{ width: "75%" }}>
               <h3
                 dangerouslySetInnerHTML={{ __html: post.node.title }}
@@ -40,12 +39,12 @@ export default IndexPage
 
 export const query = graphql`
   query {
-    allWordpressPage(filter: {wordpress_id: {eq:16}}) {
+    allWordpressPage(filter: {slug: {eq:"inicio"}}) {
       edges {
         node {
           title
           content
-          wordpress_id
+          slug
         }
       }
     }

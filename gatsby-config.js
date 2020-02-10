@@ -31,7 +31,7 @@ module.exports = {
       resolve: "gatsby-source-wordpress",
       options: {
         // I have created a dummy site for us to use with the plugins we discussed
-        baseUrl: "colombiaweb.co/colweb",
+        baseUrl: "http://charlesdev-wpapi.colombiaweb.co/",
         protocol: "http",
         hostingWPCOM: false,
         // We will be using some advanced custom fields
@@ -40,7 +40,7 @@ module.exports = {
         verboseOutput: false,
         perPage: 100,
         searchAndReplaceContentUrls: {
-          sourceUrl: "http://www.colombiaweb.co/colweb",
+          sourceUrl: "http://charlesdev-wpapi.colombiaweb.co/",
           replacementUrl: "https://localhost:8000",
         },
         // Set how many simultaneous requests are sent at once.
@@ -54,6 +54,7 @@ module.exports = {
           "**/taxonomies",
           "**/users",
           "**/menus",
+          "**/menu-locations",
         ],
         excludedRoutes: [],
         normalizer: function({ entities }) {
