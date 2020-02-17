@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.bg-primary {
+  background-color: brown !important;
+}
+
+/* Blog Posts */
+.blog-title {
+  text-decoration-line: underline;
+  text-decoration-style: double;
+}
+
+.blog-date {
+  color: grey;
+  font-size: 10px;
+}
+
+.blog-featured-image {
+  width: 100%;
+}
+

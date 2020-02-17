@@ -1,73 +1,49 @@
 import { StaticQuery, graphql, Link } from "gatsby"
-import React from "react"
+import React, {useState } from "react"
+import { Container, Collapse, Navbar, NavbarToggler, Nav, NavItem } from 'reactstrap';
 
-const Header = () => (
-  <StaticQuery
-    query={graphql`
-      query MyQuery {
-        wordpressSiteMetadata {
-          name
-          description
-        }
-        wordpressMenusMenusItems(name: {eq: "Main Menu"}) {
-          items {
-            title
-            url
+const Header = () => {
+  const [isOpen, setIsOpen] = useState(false)
+
+  const toggle = () => setIsOpen(!isOpen)
+  
+  return(
+    <StaticQuery
+      query={graphql`
+        {
+          wordpressSiteMetadata {
+            name
+            description
+          }
+          wordpressMenusMenusItems(name: {eq: "Main Menu"}) {
+            items {
+              title
+              url
+            }
           }
         }
-      }
-    `}
-    render={data => (
-      <header
-        style={{
-          background: `rebeccapurple`,
-          marginBottom: `1.45rem`,
-        }}
-      >
-        <div
-          style={{
-            margin: `0 auto`,
-            maxWidth: 960,
-            padding: `1.45rem 1.0875rem`,
-            display: `flex`,
-            justifyContent: `space-between`,
-            alignItems: `center`,
-          }}
-        >
-          <div style={{ display: `block` }}>
-            <h1 style={{ margin: 0 }}>
-              <Link
-                to="/inicio"
-                style={{
-                  color: `white`,
-                  textDecoration: `none`,
-                }}
-              >
-                {data.wordpressSiteMetadata.name}
-              </Link>
-            </h1>
-            <div style={{ color: `white` }}>{data.wordpressSiteMetadata.description}</div>
-          </div>
-          <ul style={{ listStyle: `none`, display: `flex`, margin: 0 }}>
-            {data.wordpressMenusMenusItems.items.map(item => (
-              <li key={item.url} style={{ margin: `0 10px` }}>
-                <Link
-                  to={`/${item.url}`}
-                  style={{
-                    color: `white`,
-                    textDecoration: `none`,
-                    fontFamily: `sans-serif`,
-                  }}
-                >
-                  {item.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </header>
-    )}
+      `}
+      render={data => (
+        <header>
+            <Navbar color="primary" expand="md" className="navbar-dark">
+            <Container>
+              <Link to="/" className="navbar-brand">{data.wordpressSiteMetadata.name}</Link>
+              <NavbarToggler onClick={toggle} />
+              <Collapse isOpen={isOpen} navbar>
+                <Nav className="ml-auto" navbar>
+                {data.wordpressMenusMenusItems.items.map(item => (
+                  <NavItem key={item.url}>
+                    <Link to={`/${item.url}`} className="nav-link">{item.title}</Link>
+                  </NavItem>
+                  ))}
+                </Nav>
+              </Collapse>
+              </Container>
+            </Navbar>
+        </header>
+      )}
   />
-)
+  )
+}
 
 export default Header
