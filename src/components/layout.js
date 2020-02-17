@@ -11,7 +11,7 @@ const Layout = ({ children }) => {
     <>
       <Header />
       <div>
-        <main className="pt-3">{children}</main>
+        <main className="py-3">{children}</main>
       </div>
       <footer className="bg-primary">
         <Container>

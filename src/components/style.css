@@ -6,8 +6,17 @@ body, html {
   font-family: 'Open Sans', sans-serif;
 }
 
+p {
+  font-size: 1.2rem;
+  margin: 0px;
+}
+
 .bg-primary {
   background-color: brown !important;
+}
+
+.text-primary {
+  color: brown !important;
 }
 
 /* Blog Posts */
@@ -24,4 +33,35 @@ body, html {
 .blog-featured-image {
   width: 100%;
 }
+
+.profile-img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+/* Skills*/
+.skills-wrap {
+  width: 100%;
+  background-color: #ddd;
+  margin-bottom: 15px;
+}
+
+.skills {
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
+}
+
+.html {width: 95%; background-color: #f16529;}
+.css {width: 90%; background-color: #29a8e0;}
+.js {width: 90%; background-color: #8acf17;}
+.php {width: 95%; background-color: #777bb3;}
+.mysql {width: 90%; background-color: #e58e00;}
+.codeigniter {width: 88%; background-color: #4CAF50;}
+.wordpress {width: 85%; background-color: #4CAF50;}
+.react {width: 95%; background-color: #4CAF50;}
+.node {width: 95%; background-color: #4CAF50;}
+
+
 
