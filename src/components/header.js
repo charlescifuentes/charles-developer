@@ -1,13 +1,20 @@
 import { StaticQuery, graphql, Link } from "gatsby"
-import React, {useState } from "react"
-import { Container, Collapse, Navbar, NavbarToggler, Nav, NavItem } from 'reactstrap';
+import React, { useState } from "react"
+import {
+  Container,
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  Nav,
+  NavItem,
+} from "reactstrap"
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
 
   const toggle = () => setIsOpen(!isOpen)
-  
-  return(
+
+  return (
     <StaticQuery
       query={graphql`
         {
@@ -15,7 +22,7 @@ const Header = () => {
             name
             description
           }
-          wordpressMenusMenusItems(name: {eq: "Main Menu"}) {
+          wordpressMenusMenusItems(name: { eq: "Main Menu" }) {
             items {
               title
               url
@@ -24,25 +31,48 @@ const Header = () => {
         }
       `}
       render={data => (
-        <header>
-            <Navbar color="primary" expand="md" className="navbar-dark">
-            <Container>
-              <Link to="/" className="navbar-brand">{data.wordpressSiteMetadata.name}</Link>
-              <NavbarToggler onClick={toggle} />
-              <Collapse isOpen={isOpen} navbar>
-                <Nav className="ml-auto" navbar>
+        <nav
+          className="navbar navbar-b navbar-trans navbar-expand-md fixed-top"
+          id="mainNav"
+        >
+          <div className="container">
+            <Link to="/" className="navbar-brand js-scroll">
+              {data.wordpressSiteMetadata.name}
+            </Link>
+            <button
+              class="navbar-toggler collapsed"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarDefault"
+              aria-controls="navbarDefault"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+            <div
+              className="navbar-collapse collapse justify-content-end"
+              id="navbarDefault"
+            >
+              <ul className="navbar-nav">
                 {data.wordpressMenusMenusItems.items.map(item => (
-                  <NavItem key={item.url}>
-                    <Link to={`/${item.url}`} className="nav-link">{item.title}</Link>
-                  </NavItem>
-                  ))}
-                </Nav>
-              </Collapse>
-              </Container>
-            </Navbar>
-        </header>
+                  <li class="nav-item" key={item.url}>
+                    <Link
+                      to={`/${item.url}`}
+                      className="nav-link js-scroll active"
+                    >
+                      {item.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </nav>
       )}
-  />
+    />
   )
 }
 

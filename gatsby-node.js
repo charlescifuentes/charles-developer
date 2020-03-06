@@ -9,7 +9,12 @@ const slash = require(`slash`)
 // Will create pages for WordPress posts (route : /post/{slug})
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions
-  createRedirect({ fromPath: '/', toPath: '/inicio', redirectInBrowser: true, isPermanent: true })
+  createRedirect({
+    fromPath: "/",
+    toPath: "/inicio",
+    redirectInBrowser: true,
+    isPermanent: true,
+  })
   // The “graphql” function allows us to run arbitrary
   // queries against the local Gatsby GraphQL schema. Think of
   // it like the site has a built-in database constructed
@@ -67,7 +72,11 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   // Access query results via object destructuring
-  const { allWordpressPage, allWordpressPost, allWordpressWpPortfolio } = result.data
+  const {
+    allWordpressPage,
+    allWordpressPost,
+    allWordpressWpPortfolio,
+  } = result.data
 
   const pageTemplate = path.resolve(`./src/templates/page.js`)
   // We want to create a detailed page for each
