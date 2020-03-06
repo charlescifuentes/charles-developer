@@ -73,12 +73,12 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Access query results via object destructuring
   const {
-    allWordpressPage,
+    /*allWordpressPage,*/
     allWordpressPost,
     allWordpressWpPortfolio,
   } = result.data
 
-  const pageTemplate = path.resolve(`./src/templates/page.js`)
+  /*const pageTemplate = path.resolve(`./src/templates/page.js`)
   // We want to create a detailed page for each
   // page node. We'll just use the WordPress Slug for the slug.
   // The Page ID is prefixed with 'PAGE_'
@@ -95,7 +95,7 @@ exports.createPages = async ({ graphql, actions }) => {
       component: slash(pageTemplate),
       context: edge.node,
     })
-  })
+  })*/
 
   const postTemplate = path.resolve(`./src/templates/post.js`)
   // We want to create a detailed page for each

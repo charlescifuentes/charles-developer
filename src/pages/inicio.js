@@ -3,7 +3,7 @@ import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Container, Row, Col } from "reactstrap"
-import IntroImg from "../images/gatsby-astronaut.png"
+import IntroImg from "../images/intro-bg.jpg"
 
 const Inicio = ({ data }) => (
   <Layout>
