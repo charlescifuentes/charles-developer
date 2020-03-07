@@ -1,13 +1,5 @@
 import { StaticQuery, graphql, Link } from "gatsby"
 import React, { useState } from "react"
-import {
-  Container,
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  Nav,
-  NavItem,
-} from "reactstrap"
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)

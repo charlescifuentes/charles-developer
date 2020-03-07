@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
     <>
       <Header />
       <main>{children}</main>
-      <footer className="bg-primary">
+      <footer>
         <Container>
           <div className="text-white p-3">
             © Charles Developer - {new Date().getFullYear()}, Built with the
