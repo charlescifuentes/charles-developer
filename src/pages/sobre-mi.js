@@ -1,8 +1,8 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
+import Header from "../components/header"
 import SEO from "../components/seo"
-import backImg from '../images/web-developer-background.jpg'
 
 const SobreMi = ({ data }) => (
   <Layout>
@@ -15,16 +15,7 @@ const SobreMi = ({ data }) => (
       ]}
     />
 
-    <div className="intro intro-single route bg-image" style={{ backgroundImage: `url(${backImg})` }}>
-      <div className="overlay-mf"></div>
-      <div className="intro-content display-table">
-        <div className="table-cell">
-          <div className="container">
-            <h2 className="intro-title mb-4">Sobre Mi</h2>
-          </div>
-        </div>
-      </div>
-    </div>
+    <Header title={data.allWordpressPage.edges[0].node.title} />
 
     <section id="about" className="about-mf sect-pt4 route">
       <div className="container">

@@ -1,14 +1,14 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-import Header from "./header"
+import NavBar from "./navbar"
 import "./style.css"
 import { Container } from "reactstrap"
 
 const Layout = ({ children }) => {
   return (
     <>
-      <Header />
+      <NavBar />
       <main>{children}</main>
       <footer>
         <Container>
