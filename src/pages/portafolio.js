@@ -23,7 +23,12 @@ const Portafolio = ({ data }) => (
         <div className="row">
           <div className="col-sm-12">
             <div className="title-box text-center">
-              <p className="display-5" dangerouslySetInnerHTML={{ __html: data.allWordpressPage.edges[0].node.content }} />
+              <p
+                className="display-5"
+                dangerouslySetInnerHTML={{
+                  __html: data.allWordpressPage.edges[0].node.content,
+                }}
+              />
               <div className="line-mf"></div>
             </div>
           </div>
@@ -31,7 +36,7 @@ const Portafolio = ({ data }) => (
         <PortfolioList />
       </div>
     </section>
-  </Layout >
+  </Layout>
 )
 
 export default Portafolio

@@ -56,9 +56,16 @@ exports.createPages = async ({ graphql, actions }) => {
           node {
             title
             content
-            slug
             featured_media {
               source_url
+            }
+            categories {
+              name
+            }
+            slug
+            acf {
+              ano_desarrollo
+              url
             }
           }
         }
