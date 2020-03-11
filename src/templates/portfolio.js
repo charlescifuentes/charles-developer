@@ -2,6 +2,8 @@ import React from "react"
 import Layout from "../components/layout"
 import Header from "../components/header"
 import SEO from "../components/seo"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faLink, faCalendarAlt } from "@fortawesome/free-solid-svg-icons"
 
 export default ({ pageContext }) => (
   <Layout>
@@ -23,18 +25,31 @@ export default ({ pageContext }) => (
             </div>
             <div className="col-sm-6">
               <div className="work-content">
-                <p dangerouslySetInnerHTML={{ __html: pageContext.content }} />
-                <div>Año: {pageContext.acf.ano_desarrollo}</div>
-                <div>
-                  <a
-                    className="btn btn-primary text-white"
-                    href={pageContext.acf.url}
-                    role="button"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Visitar
-                  </a>
+                <div
+                  dangerouslySetInnerHTML={{ __html: pageContext.content }}
+                />
+                <div className="text-center">
+                  <div className="row">
+                    <div className="col-sm-6">
+                      <div className="p-3 m-2 bg-info text-white rounded">
+                        <FontAwesomeIcon icon={faCalendarAlt} /> Año:{" "}
+                        {pageContext.acf.ano_desarrollo}
+                      </div>
+                    </div>
+                    <div className="col-sm-6">
+                      <div className="p-3 m-2 bg-info rounded">
+                        <a
+                          className="text-white"
+                          href={pageContext.acf.url}
+                          role="button"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <FontAwesomeIcon icon={faLink} /> Visitar
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

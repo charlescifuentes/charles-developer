@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const Inicio = ({ data }) => (
-  < Layout >
+  <Layout>
     <SEO
       title="Inicio"
       keywords={[
@@ -13,12 +13,20 @@ const Inicio = ({ data }) => (
         `software engineer`,
       ]}
     />
-    <div id="home" className="intro route bg-image" style={{ backgroundImage: `url(${data.allWordpressPage.edges[0].node.acf.header_background_image.source_url})` }}>
+    <div
+      id="home"
+      className="intro route bg-image"
+      style={{
+        backgroundImage: `url(${data.allWordpressPage.edges[0].node.acf.header_background_image.source_url})`,
+      }}
+    >
       <div className="overlay-itro"></div>
       <div className="intro-content display-table">
         <div className="table-cell">
           <div className="container">
-            <h1 className="intro-title mb-4">{data.allWordpressPage.edges[0].node.acf.header_title}</h1>
+            <h1 className="intro-title mb-4">
+              {data.allWordpressPage.edges[0].node.acf.header_title}
+            </h1>
             <p className="intro-subtitle">
               {data.allWordpressPage.edges[0].node.acf.header_subtitle}
               <strong className="text-slider"></strong>
@@ -37,15 +45,34 @@ const Inicio = ({ data }) => (
                   <div className="row">
                     <div className="col-sm-6 col-md-5">
                       <div className="about-img">
-                        <img src={data.allWordpressPage.edges[0].node.acf.about_picture.source_url} className="img-fluid rounded b-shadow-a" alt="" />
+                        <img
+                          src={
+                            data.allWordpressPage.edges[0].node.acf
+                              .about_picture.source_url
+                          }
+                          className="img-fluid rounded b-shadow-a"
+                          alt=""
+                        />
                       </div>
                     </div>
                     <div className="col-sm-6 col-md-7">
                       <div className="about-info">
-                        <p><span className="title-s">Name: </span> <span>Charles Cifuentes</span></p>
-                        <p><span className="title-s">Profile: </span> <span>Fullstack Developer</span></p>
-                        <p><span className="title-s">Email: </span> <span>charlescifuentes@gmail.com</span></p>
-                        <p><span className="title-s">Phone: </span> <span>(57) 3174015113</span></p>
+                        <p>
+                          <span className="title-s">Name: </span>{" "}
+                          <span>Charles Cifuentes</span>
+                        </p>
+                        <p>
+                          <span className="title-s">Profile: </span>{" "}
+                          <span>Fullstack Developer</span>
+                        </p>
+                        <p>
+                          <span className="title-s">Email: </span>{" "}
+                          <span>charlescifuentes@gmail.com</span>
+                        </p>
+                        <p>
+                          <span className="title-s">Phone: </span>{" "}
+                          <span>(57) 3174015113</span>
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -53,55 +80,110 @@ const Inicio = ({ data }) => (
                     <p className="title-s">Habilidades</p>
                     <span>HTML</span> <span class="pull-right">95%</span>
                     <div className="progress">
-                      <div className="progress-bar" role="progressbar" style={{ width: "95%" }} aria-valuenow="85" aria-valuemin="0"
-                        aria-valuemax="100"></div>
+                      <div
+                        className="progress-bar"
+                        role="progressbar"
+                        style={{ width: "95%" }}
+                        aria-valuenow="85"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                      ></div>
                     </div>
                     <span>CSS3</span> <span class="pull-right">90%</span>
                     <div className="progress">
-                      <div className="progress-bar" role="progressbar" style={{ width: "90%" }} aria-valuenow="75" aria-valuemin="0"
-                        aria-valuemax="100"></div>
+                      <div
+                        className="progress-bar"
+                        role="progressbar"
+                        style={{ width: "90%" }}
+                        aria-valuenow="75"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                      ></div>
                     </div>
                     <span>PHP</span> <span class="pull-right">90%</span>
                     <div className="progress">
-                      <div class="progress-bar" role="progressbar" style={{ width: "90%" }} aria-valuenow="50" aria-valuemin="0"
-                        aria-valuemax="100"></div>
+                      <div
+                        class="progress-bar"
+                        role="progressbar"
+                        style={{ width: "90%" }}
+                        aria-valuenow="50"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                      ></div>
                     </div>
                     <span>JAVASCRIPT</span> <span class="pull-right">90%</span>
                     <div className="progress">
-                      <div class="progress-bar" role="progressbar" style={{ width: "90%" }} aria-valuenow="90" aria-valuemin="0"
-                        aria-valuemax="100"></div>
+                      <div
+                        class="progress-bar"
+                        role="progressbar"
+                        style={{ width: "90%" }}
+                        aria-valuenow="90"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                      ></div>
                     </div>
                     <span>CODEIGNITER</span> <span class="pull-right">95%</span>
                     <div className="progress">
-                      <div class="progress-bar" role="progressbar" style={{ width: "95%" }} aria-valuenow="90" aria-valuemin="0"
-                        aria-valuemax="100"></div>
+                      <div
+                        class="progress-bar"
+                        role="progressbar"
+                        style={{ width: "95%" }}
+                        aria-valuenow="90"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                      ></div>
                     </div>
                     <span>WORDPRESS</span> <span class="pull-right">90%</span>
                     <div className="progress">
-                      <div class="progress-bar" role="progressbar" style={{ width: "90%" }} aria-valuenow="90" aria-valuemin="0"
-                        aria-valuemax="100"></div>
+                      <div
+                        class="progress-bar"
+                        role="progressbar"
+                        style={{ width: "90%" }}
+                        aria-valuenow="90"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                      ></div>
                     </div>
                     <span>REACT.JS</span> <span class="pull-right">85%</span>
                     <div className="progress">
-                      <div class="progress-bar" role="progressbar" style={{ width: "90%" }} aria-valuenow="85" aria-valuemin="0"
-                        aria-valuemax="100"></div>
+                      <div
+                        class="progress-bar"
+                        role="progressbar"
+                        style={{ width: "90%" }}
+                        aria-valuenow="85"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                      ></div>
                     </div>
                     <span>NODE.JS</span> <span class="pull-right">80%</span>
                     <div className="progress">
-                      <div class="progress-bar" role="progressbar" style={{ width: "90%" }} aria-valuenow="80" aria-valuemin="0"
-                        aria-valuemax="100"></div>
+                      <div
+                        class="progress-bar"
+                        role="progressbar"
+                        style={{ width: "90%" }}
+                        aria-valuenow="80"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                      ></div>
                     </div>
                   </div>
                 </div>
                 <div className="col-md-6">
                   <div className="about-me pt-4 pt-md-0">
                     <div className="title-box-2">
-                      <h5 className="title-left">
-                        Sobre Mi
-                    </h5>
+                      <h5 className="title-left">Sobre Mi</h5>
                     </div>
-                    <p className="lead" dangerouslySetInnerHTML={{ __html: data.allWordpressPage.edges[0].node.acf.about_description }} />
-                    <Link to="/sobre-mi"><button className="button-a">Ver más</button></Link>
+                    <p
+                      className="lead"
+                      dangerouslySetInnerHTML={{
+                        __html:
+                          data.allWordpressPage.edges[0].node.acf
+                            .about_description,
+                      }}
+                    />
+                    <Link to="/sobre-mi">
+                      <button className="button-a">Ver más</button>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -116,11 +198,10 @@ const Inicio = ({ data }) => (
         <div className="row">
           <div className="col-sm-12">
             <div className="title-box text-center">
-              <h3 className="title-a">
-                Blog
-              </h3>
+              <h3 className="title-a">Blog</h3>
               <p className="subtitle-a">
-                Articulos recientes sobre tecnologias para desarrollo de software
+                Artículos recientes sobre tecnologías para desarrollo de
+                software
               </p>
               <div className="line-mf"></div>
             </div>
@@ -132,7 +213,11 @@ const Inicio = ({ data }) => (
               <div className="card card-blog">
                 <div className="card-img">
                   <Link to={`/post/${post.node.slug}`}>
-                    <img src={post.node.featured_media.source_url} alt="" className="img-fluid" />
+                    <img
+                      src={post.node.featured_media.source_url}
+                      alt=""
+                      className="img-fluid"
+                    />
                   </Link>
                 </div>
                 <div className="card-body">
@@ -141,16 +226,22 @@ const Inicio = ({ data }) => (
                       <h6 className="category">Travel</h6>
                     </div>
                   </div>
-                  <h3 className="card-title"><Link to={`/post/${post.node.slug}`} dangerouslySetInnerHTML={{ __html: post.node.title }} /></h3>
-                  <p className="card-description" dangerouslySetInnerHTML={{ __html: post.node.excerpt }} />
+                  <h3 className="card-title">
+                    <Link
+                      to={`/post/${post.node.slug}`}
+                      dangerouslySetInnerHTML={{ __html: post.node.title }}
+                    />
+                  </h3>
+                  <p
+                    className="card-description"
+                    dangerouslySetInnerHTML={{ __html: post.node.excerpt }}
+                  />
                 </div>
                 <div className="card-footer">
-                  <div className="post-author">
-                    <img src="img/testimonial-2.jpg" alt="" className="avatar rounded-circle" />
-                    <span className="author">Written by {post.node.author}</span>
-                  </div>
                   <div className="post-date">
-                    <span className="ion-ios-clock-outline"></span> <div dangerouslySetInnerHTML={{ __html: post.node.date }} />
+                    <div>Written on: </div>
+                    <span className="ion-ios-clock-outline"> </span>
+                    <div dangerouslySetInnerHTML={{ __html: post.node.date }} />
                   </div>
                 </div>
               </div>
@@ -159,48 +250,48 @@ const Inicio = ({ data }) => (
         </div>
       </div>
     </section>
-  </Layout >
+  </Layout>
 )
 
 export default Inicio
 
 export const query = graphql`
-{
-  allWordpressPage(filter: {slug: {eq: "inicio"}}) {
-    edges {
-      node {
-        acf {
-          header_title
-          header_subtitle
-          header_background_image {
+  {
+    allWordpressPage(filter: { slug: { eq: "inicio" } }) {
+      edges {
+        node {
+          acf {
+            header_title
+            header_subtitle
+            header_background_image {
+              source_url
+            }
+            about_description
+            about_picture {
+              source_url
+            }
+            about_name
+            about_profile
+            about_email
+            about_phone
+          }
+        }
+      }
+    }
+    allWordpressPost {
+      edges {
+        node {
+          title
+          content
+          excerpt
+          author
+          slug
+          date(formatString: "DD MM YYYY")
+          featured_media {
             source_url
           }
-          about_description
-          about_picture {
-            source_url
-          }
-          about_name
-          about_profile
-          about_email
-          about_phone
         }
       }
     }
   }
-  allWordpressPost {
-    edges {
-      node {
-        title
-        content
-        excerpt
-        author
-        slug
-        date(formatString: "DD MM YYYY")
-        featured_media {
-          source_url
-        }
-      }
-    }
-  }
-}
 `
