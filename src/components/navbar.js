@@ -1,10 +1,27 @@
 import { StaticQuery, graphql, Link } from "gatsby"
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const [isReduce, setReduce] = useState(false)
 
   const toggle = () => setIsOpen(!isOpen)
+
+  const navBarReduce = () => {
+    const pixels = 50
+
+    if (window.scrollY > pixels) {
+      setReduce(true)
+    } else {
+      setReduce(false)
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", navBarReduce)
+
+    return () => window.removeEventListener("scroll", navBarReduce)
+  })
 
   return (
     <StaticQuery
@@ -24,7 +41,9 @@ const NavBar = () => {
       `}
       render={data => (
         <nav
-          className="navbar navbar-b navbar-trans navbar-expand-md fixed-top"
+          className={`navbar navbar-b navbar-expand-md fixed-top ${
+            isOpen ? "navbar-reduce" : ""
+          } ${isReduce ? "navbar-reduce" : "navbar-trans"}`}
           id="mainNav"
         >
           <div className="container">
@@ -39,6 +58,7 @@ const NavBar = () => {
               aria-controls="navbarDefault"
               aria-expanded="false"
               aria-label="Toggle navigation"
+              onClick={toggle}
             >
               <span></span>
               <span></span>
