@@ -76,97 +76,6 @@ const Inicio = ({ data }) => (
                       </div>
                     </div>
                   </div>
-                  <div className="skill-mf">
-                    <p className="title-s">Habilidades</p>
-                    <span>HTML</span> <span class="pull-right">95%</span>
-                    <div className="progress">
-                      <div
-                        className="progress-bar"
-                        role="progressbar"
-                        style={{ width: "95%" }}
-                        aria-valuenow="85"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      ></div>
-                    </div>
-                    <span>CSS3</span> <span class="pull-right">90%</span>
-                    <div className="progress">
-                      <div
-                        className="progress-bar"
-                        role="progressbar"
-                        style={{ width: "90%" }}
-                        aria-valuenow="75"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      ></div>
-                    </div>
-                    <span>PHP</span> <span class="pull-right">90%</span>
-                    <div className="progress">
-                      <div
-                        class="progress-bar"
-                        role="progressbar"
-                        style={{ width: "90%" }}
-                        aria-valuenow="50"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      ></div>
-                    </div>
-                    <span>JAVASCRIPT</span> <span class="pull-right">90%</span>
-                    <div className="progress">
-                      <div
-                        class="progress-bar"
-                        role="progressbar"
-                        style={{ width: "90%" }}
-                        aria-valuenow="90"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      ></div>
-                    </div>
-                    <span>CODEIGNITER</span> <span class="pull-right">95%</span>
-                    <div className="progress">
-                      <div
-                        class="progress-bar"
-                        role="progressbar"
-                        style={{ width: "95%" }}
-                        aria-valuenow="90"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      ></div>
-                    </div>
-                    <span>WORDPRESS</span> <span class="pull-right">90%</span>
-                    <div className="progress">
-                      <div
-                        class="progress-bar"
-                        role="progressbar"
-                        style={{ width: "90%" }}
-                        aria-valuenow="90"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      ></div>
-                    </div>
-                    <span>REACT.JS</span> <span class="pull-right">85%</span>
-                    <div className="progress">
-                      <div
-                        class="progress-bar"
-                        role="progressbar"
-                        style={{ width: "90%" }}
-                        aria-valuenow="85"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      ></div>
-                    </div>
-                    <span>NODE.JS</span> <span class="pull-right">80%</span>
-                    <div className="progress">
-                      <div
-                        class="progress-bar"
-                        role="progressbar"
-                        style={{ width: "90%" }}
-                        aria-valuenow="80"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      ></div>
-                    </div>
-                  </div>
                 </div>
                 <div className="col-md-6">
                   <div className="about-me pt-4 pt-md-0">
@@ -182,7 +91,9 @@ const Inicio = ({ data }) => (
                       }}
                     />
                     <Link to="/sobre-mi">
-                      <button className="button-a">Ver más</button>
+                      <button type="button" class="btn btn-info">
+                        Ver Más
+                      </button>
                     </Link>
                   </div>
                 </div>
@@ -193,7 +104,7 @@ const Inicio = ({ data }) => (
       </div>
     </section>
 
-    <section id="blog" class="blog-mf sect-pt4 route">
+    <section id="blog" className="blog-mf sect-pt4 route">
       <div className="container">
         <div className="row">
           <div className="col-sm-12">
@@ -223,7 +134,9 @@ const Inicio = ({ data }) => (
                 <div className="card-body">
                   <div className="card-category-box">
                     <div className="card-category">
-                      <h6 className="category">Travel</h6>
+                      <h6 className="category">
+                        {post.node.categories[0].name}
+                      </h6>
                     </div>
                   </div>
                   <h3 className="card-title">
@@ -289,6 +202,9 @@ export const query = graphql`
           date(formatString: "DD MM YYYY")
           featured_media {
             source_url
+          }
+          categories {
+            name
           }
         }
       }

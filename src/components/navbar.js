@@ -1,19 +1,31 @@
 import { StaticQuery, graphql, Link } from "gatsby"
 import React, { useState, useEffect } from "react"
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  Nav,
+  NavItem,
+  Container,
+} from "reactstrap"
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const [isReduce, setReduce] = useState(false)
+  const [isReduced, setReduced] = useState(false)
+  const [isCollapsed, setIsCollapsed] = useState(true)
 
-  const toggle = () => setIsOpen(!isOpen)
+  const toggle = () => {
+    setIsOpen(!isOpen)
+    setIsCollapsed(!isCollapsed)
+  }
 
   const navBarReduce = () => {
     const pixels = 50
 
     if (window.scrollY > pixels) {
-      setReduce(true)
+      setReduced(true)
     } else {
-      setReduce(false)
+      setReduced(false)
     }
   }
 
@@ -40,49 +52,48 @@ const NavBar = () => {
         }
       `}
       render={data => (
-        <nav
-          className={`navbar navbar-b navbar-expand-md fixed-top ${
-            isOpen ? "navbar-reduce" : ""
-          } ${isReduce ? "navbar-reduce" : "navbar-trans"}`}
-          id="mainNav"
-        >
-          <div className="container">
-            <Link to="/" className="navbar-brand js-scroll">
-              {data.wordpressSiteMetadata.name}
-            </Link>
-            <button
-              class="navbar-toggler collapsed"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navbarDefault"
-              aria-controls="navbarDefault"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-              onClick={toggle}
-            >
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
-            <div
-              className="navbar-collapse collapse justify-content-end"
-              id="navbarDefault"
-            >
-              <ul className="navbar-nav">
-                {data.wordpressMenusMenusItems.items.map(item => (
-                  <li class="nav-item" key={item.url}>
-                    <Link
-                      to={`/${item.url}`}
-                      className="nav-link js-scroll active"
-                    >
-                      {item.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </nav>
+        <div>
+          <Navbar
+            className={`navbar navbar-b navbar-expand-md fixed-top ${
+              isOpen ? "navbar-reduce" : ""
+            } ${isReduced ? "navbar-reduce" : "navbar-trans"}`}
+          >
+            <Container>
+              <Link to="/" className="navbar-brand js-scroll">
+                {data.wordpressSiteMetadata.name}
+              </Link>
+              <NavbarToggler
+                className={`${isCollapsed ? "collapsed" : ""}`}
+                data-toggle="collapse"
+                data-target="#navbarDefault"
+                aria-controls="navbarDefault"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+                onClick={toggle}
+              >
+                <span></span>
+                <span></span>
+                <span></span>
+              </NavbarToggler>
+              <Collapse
+                isOpen={isOpen}
+                navbar
+                className="justify-content-end"
+                id="navbarDefault"
+              >
+                <Nav navbar>
+                  {data.wordpressMenusMenusItems.items.map(item => (
+                    <NavItem key={item.url}>
+                      <Link to={`/${item.url}`} className="nav-link js-scroll">
+                        {item.title}
+                      </Link>
+                    </NavItem>
+                  ))}
+                </Nav>
+              </Collapse>
+            </Container>
+          </Navbar>
+        </div>
       )}
     />
   )
