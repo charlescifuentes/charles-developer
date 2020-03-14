@@ -16,18 +16,19 @@ const Blog = ({ data }) => (
       ]}
     />
 
-    <Header title={data.allWordpressPost.edges[0].node.title} />
+    <Header title={data.allWordpressPage.edges[0].node.title} />
 
     <section id="blog" className="blog-mf sect-pt4 route">
       <div className="container">
         <div className="row">
           <div className="col-sm-12">
             <div className="title-box text-center">
-              <h3 className="title-a">Blog</h3>
-              <p className="subtitle-a">
-                Artículos recientes sobre tecnologías para desarrollo de
-                software
-              </p>
+              <p
+                className="display-5"
+                dangerouslySetInnerHTML={{
+                  __html: data.allWordpressPage.edges[0].node.content,
+                }}
+              />
               <div className="line-mf"></div>
             </div>
           </div>
@@ -42,21 +43,11 @@ export default Blog
 
 export const query = graphql`
   {
-    allWordpressPost {
+    allWordpressPage(filter: { slug: { eq: "blog" } }) {
       edges {
         node {
           title
           content
-          excerpt
-          author
-          slug
-          date(formatString: "DD MM YYYY")
-          featured_media {
-            source_url
-          }
-          categories {
-            name
-          }
         }
       }
     }

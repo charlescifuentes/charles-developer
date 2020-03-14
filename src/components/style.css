@@ -102,7 +102,7 @@ a:hover {
 
 .paralax-mf {
   position: relative;
-  padding: 8rem 0;
+  padding: 0rem 0;
 }
 
 .display-table {
@@ -959,6 +959,16 @@ a:hover {
   font-style: italic;
 }
 
+.blog-wrapper .post-thumb {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.blog-wrapper .img-fluid {
+  width: 80%;
+}
+
 /*------/ Comments /------*/
 
 .box-comments .list-comments li {
@@ -1048,18 +1058,6 @@ a:hover {
 
 .widget-tags ul li a {
   color: #fff;
-}
-
-/*======================================
-//--//-->   CONTACT
-======================================*/
-
-.footer-paralax {
-  padding: 4rem 0 0 0;
-}
-
-.contact-mf {
-  margin-top: 4rem;
 }
 
 /*======================================

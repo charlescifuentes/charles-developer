@@ -54,18 +54,16 @@ exports.createPages = async ({ graphql, actions }) => {
       allWordpressWpPortfolio {
         edges {
           node {
-            title
-            content
-            featured_media {
-              source_url
-            }
-            categories {
-              name
-            }
-            slug
             acf {
               ano_desarrollo
+              tipo
               url
+            }
+            content
+            title
+            slug
+            featured_media {
+              source_url
             }
           }
         }

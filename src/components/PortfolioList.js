@@ -8,15 +8,17 @@ const PortfolioList = () => (
         allWordpressWpPortfolio {
           edges {
             node {
+              acf {
+                ano_desarrollo
+                tipo
+                url
+              }
+              excerpt
               title
-              content
+              slug
               featured_media {
                 source_url
               }
-              categories {
-                name
-              }
-              slug
             }
           }
         }
@@ -37,29 +39,19 @@ const PortfolioList = () => (
                 </Link>
               </div>
               <div className="work-content">
-                <div className="row">
-                  <div className="col-sm-8">
-                    <Link to={`/portfolio/${portfolio.node.slug}`}>
-                      <h2 className="w-title">{portfolio.node.title}</h2>
-                    </Link>
-                    <div className="w-more">
-                      <span className="w-ctegory">
-                        {portfolio.node.categories[0].name}
-                      </span>{" "}
-                      /{" "}
-                      <span
-                        class="w-date"
-                        dangerouslySetInnerHTML={{
-                          __html: portfolio.node.content,
-                        }}
-                      ></span>
-                    </div>
-                  </div>
-                  <div className="col-sm-4">
-                    <div className="w-like">
-                      <span className="ion-ios-plus-outline"></span>
-                    </div>
-                  </div>
+                <Link to={`/portfolio/${portfolio.node.slug}`}>
+                  <h2 className="w-title">{portfolio.node.title}</h2>
+                </Link>
+                <div className="w-more">
+                  <span className="w-ctegory">
+                    >> {portfolio.node.acf.tipo}
+                  </span>
+                  <span
+                    class="w-date"
+                    dangerouslySetInnerHTML={{
+                      __html: portfolio.node.excerpt,
+                    }}
+                  ></span>
                 </div>
               </div>
             </div>

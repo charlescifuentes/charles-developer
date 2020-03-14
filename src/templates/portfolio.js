@@ -3,7 +3,11 @@ import Layout from "../components/layout"
 import Header from "../components/header"
 import SEO from "../components/seo"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faLink, faCalendarAlt } from "@fortawesome/free-solid-svg-icons"
+import {
+  faLink,
+  faCalendarAlt,
+  faArrowAltCircleRight,
+} from "@fortawesome/free-solid-svg-icons"
 
 export default ({ pageContext }) => (
   <Layout>
@@ -28,6 +32,10 @@ export default ({ pageContext }) => (
                 <div
                   dangerouslySetInnerHTML={{ __html: pageContext.content }}
                 />
+                <div className="text-info m-2">
+                  <FontAwesomeIcon icon={faArrowAltCircleRight} />{" "}
+                  {pageContext.acf.tipo}
+                </div>
                 <div className="text-center">
                   <div className="row">
                     <div className="col-sm-6">
