@@ -44,8 +44,6 @@ const Contactarme = ({ data }) => {
       .catch(error => setErrorMessage(true))
   }
 
-  console.log(state)
-
   return (
     <Layout>
       <SEO
