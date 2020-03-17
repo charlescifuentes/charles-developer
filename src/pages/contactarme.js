@@ -4,6 +4,20 @@ import Layout from "../components/layout"
 import Header from "../components/header"
 import SEO from "../components/seo"
 import backImg from "../images/web-developer-background.jpg"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faPhone, faEnvelope, faGlobe } from "@fortawesome/free-solid-svg-icons"
+import {
+  faFacebookF,
+  faInstagram,
+  faTwitter,
+  faLinkedinIn,
+  faYoutube,
+} from "@fortawesome/free-brands-svg-icons"
+
+const handleSuccess = e => {
+  e.preventDefault()
+  console.log("Message sent successfully")
+}
 
 const Contactarme = ({ data }) => (
   <Layout>
@@ -36,15 +50,18 @@ const Contactarme = ({ data }) => (
                   </div>
                   <div>
                     <form
-                      action=""
+                      name="contact"
                       method="post"
-                      role="form"
+                      action={handleSuccess}
+                      data-netlify="true"
+                      data-netlify-honeypot="bot-field"
                       className="contactForm"
                     >
                       <div id="sendmessage">
                         Your message has been sent. Thank you!
                       </div>
                       <div id="errormessage"></div>
+                      <input type="hidden" name="bot-field" />
                       <div className="row">
                         <div className="col-md-12 mb-3">
                           <div className="form-group">
@@ -93,6 +110,7 @@ const Contactarme = ({ data }) => (
                             <textarea
                               className="form-control"
                               name="message"
+                              id="message"
                               rows="5"
                               data-rule="required"
                               data-msg="Please write something for us"
@@ -133,14 +151,17 @@ const Contactarme = ({ data }) => (
                     />
                     <ul className="list-ico">
                       <li>
+                        <FontAwesomeIcon icon={faGlobe} />
                         <span className="ion-ios-location"></span>
                         {data.allWordpressPage.edges[0].node.acf.location}
                       </li>
                       <li>
-                        <span className="ion-ios-telephone"></span> (617)
+                        <FontAwesomeIcon icon={faPhone} />
+                        <span className="ion-ios-telephone"></span>
                         {data.allWordpressPage.edges[0].node.acf.phone}
                       </li>
                       <li>
+                        <FontAwesomeIcon icon={faEnvelope} />
                         <span className="ion-email"></span>{" "}
                         {data.allWordpressPage.edges[0].node.acf.email}
                       </li>
@@ -157,7 +178,7 @@ const Contactarme = ({ data }) => (
                           rel="noopener noreferrer"
                         >
                           <span className="ico-circle">
-                            <i className="ion-social-facebook"></i>
+                            <FontAwesomeIcon icon={faFacebookF} />
                           </span>
                         </a>
                       </li>
@@ -171,7 +192,7 @@ const Contactarme = ({ data }) => (
                           rel="noopener noreferrer"
                         >
                           <span className="ico-circle">
-                            <i className="ion-social-instagram"></i>
+                            <FontAwesomeIcon icon={faInstagram} />
                           </span>
                         </a>
                       </li>
@@ -184,7 +205,7 @@ const Contactarme = ({ data }) => (
                           rel="noopener noreferrer"
                         >
                           <span className="ico-circle">
-                            <i className="ion-social-twitter"></i>
+                            <FontAwesomeIcon icon={faTwitter} />
                           </span>
                         </a>
                       </li>
@@ -197,7 +218,7 @@ const Contactarme = ({ data }) => (
                           rel="noopener noreferrer"
                         >
                           <span className="ico-circle">
-                            <i className="ion-social-pinterest"></i>
+                            <FontAwesomeIcon icon={faLinkedinIn} />
                           </span>
                         </a>
                       </li>
@@ -210,7 +231,7 @@ const Contactarme = ({ data }) => (
                           rel="noopener noreferrer"
                         >
                           <span className="ico-circle">
-                            <i className="ion-social-pinterest"></i>
+                            <FontAwesomeIcon icon={faYoutube} />
                           </span>
                         </a>
                       </li>
