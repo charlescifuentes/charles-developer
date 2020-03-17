@@ -58,7 +58,7 @@ const BlogList = () => (
               </div>
               <div className="card-footer">
                 <div className="post-date">
-                  <div>Written on: </div>
+                  <div>Escrito el: </div>
                   <span className="ion-ios-clock-outline"> </span>
                   <div dangerouslySetInnerHTML={{ __html: post.node.date }} />
                 </div>

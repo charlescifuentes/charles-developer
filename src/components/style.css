@@ -1087,19 +1087,19 @@ footer .credits a {
 //--//-->   CONtaCT FORM
 ======================================*/
 
-#sendmessage {
+.sendmessage {
   color: #0078ff;
   border: 1px solid #0078ff;
-  display: none;
+  display: block;
   text-align: center;
   padding: 15px;
   font-weight: 600;
   margin-bottom: 15px;
 }
 
-#errormessage {
+.errormessage {
   color: red;
-  display: none;
+  display: block;
   border: 1px solid red;
   text-align: center;
   padding: 15px;
