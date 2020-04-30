@@ -1,11 +1,20 @@
 module.exports = {
   siteMetadata: {
     title: `Charles Developer`,
-    description: `Software Enginner - Fullstack developer.`,
-    author: `@gatsbyjs`,
+    description: `Software Enginner - Web developer.`,
+    author: `@charlescifuentes`,
+    siteUrl: `https://charles-dev.netlify.app`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: `UA-165070362-1`,
+        head: true,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -57,7 +66,7 @@ module.exports = {
           "**/portfolio",
         ],
         excludedRoutes: [],
-        normalizer: function ({ entities }) {
+        normalizer: function({ entities }) {
           return entities
         },
       },
