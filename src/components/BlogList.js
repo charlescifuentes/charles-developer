@@ -11,7 +11,6 @@ const BlogList = () => (
               title
               content
               excerpt
-              author
               slug
               date(formatString: "DD MM YYYY")
               featured_media {
